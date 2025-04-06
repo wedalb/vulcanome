@@ -11,6 +11,15 @@ This project is a Flask-based web service developed as part of my application fo
 - 🔍 [Learn more about the project](https://heidi-albarazi.vercel.app/jetbrains-internship/gene-knowledge-base-web-service)
 - 📄 [View my application and CV](https://heidi-albarazi.vercel.app/)
 
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white" alt="Python Badge" />
+  <img src="https://img.shields.io/badge/Framework-Flask-lightgrey?logo=flask" alt="Flask Badge" />
+  <img src="https://img.shields.io/badge/Charts-Plotly-blueviolet?logo=plotly" alt="Plotly Badge" />
+  <img src="https://img.shields.io/badge/API-MyGene.info-green" alt="MyGene API Badge" />
+  <img src="https://img.shields.io/badge/Data%20Source-NIH-blue" alt="NIH Badge" />
+</p>
+
 ---
 ## 📚 Table of Contents
 
@@ -122,6 +131,31 @@ vulcanome/
 ---
 
 
+
+## 🔍 Planned Usage (Not Yet Implemented)
+
+> ⚠️ This section describes intended functionality that is currently **not implemented** but reflects how the app should behave in a future version.
+
+Once the app is running locally at `http://localhost:5000`, the interface is expected to work as follows:
+
+- An **interactive volcano plot** will display differential protein activity.
+- **Clicking a data point** will open a **boxplot** comparing expression levels between young and old.
+- If available, related **scientific publications** will appear below, pulled from the **MyGene.info** API.
+
+
+## 🧬 Credits
+
+- **Data Source**:  
+  [NIHMS1635539 Supplementary Table 4](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9352447/bin/NIHMS1635539-supplement-1635539_Sup_tab_4.xlsx)
+
+- **Gene Metadata**:  
+  [MyGene.info API](https://mygene.info/) – used to fetch PubMed articles and gene information
+
+- **Task Description Provided By**:  
+  [Petr Tsurinov](https://www.jetbrains.com/)  
+  [Roman Chernyatchik](https://www.jetbrains.com/)  
+  JetBrains Software Engineering Internship
+
 ## ✨ Author
 
 <p align="center">
@@ -176,9 +210,6 @@ AI-powered dashboard to analyze and optimize supply chains:
   <img src="doc/greenhack-hackathon/diversion3.jpeg" alt="Diversion.ai Project" width="32%" />
   <img src="doc/greenhack-hackathon/diversion2.jpeg" alt="Diversion.ai Project" width="32%" />
 </p>
-
----
-
 
 
 
