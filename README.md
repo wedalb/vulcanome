@@ -84,10 +84,10 @@ This repository includes:
 ```
 vulcanome/ 
 ├── app.py # Main Flask app 
-├── static/ # Static assets (CSS, JS, etc.) 
-├── templates/ # HTML templates 
+├── data/ # Contains the NIHMS Excel data file 
+├── doc/ # Documentation assets (images, logos) 
 ├── .gitignore # Python & PyCharm-specific ignores 
-└── README.md # This file
+└── README.md # Project documentation
 ```
 ---
 ## 🧑‍💻 Getting Started
