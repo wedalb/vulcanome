@@ -14,13 +14,52 @@ This project is a Flask-based web service developed as part of my application fo
 ---
 ## 📚 Table of Contents
 
+- [🚀 Project Overview](#-project-overview)
+- [📌 Project Tasks](#-project-tasks)
 - [📁 Project Structure](#-project-structure)
+- [🧑‍💻 Getting Started](#-getting-started)
 - [🌐 Endpoint](#-endpoint)
-- [📌 Roadmap](#-roadmap)
-- [🏆 Hackathon Projects](#-hackathon-projects)
 - [✨ Author](#-author)
 
 ---
+## 📌 Project Tasks
+
+This project was developed as part of the JetBrains Software Engineering Internship application challenge. The goal is to build a web service for visualizing protein activity levels interactively.
+
+### 🛠️ Core Tasks
+
+- Build a web service using **Flask**.
+- Create an **interactive volcano plot** using data from the “S4B limma results” sheet of `NIHMS1635539-supplement-1635539_Sup_tab_4.xlsx`:
+  - Use `adj.P.Val` as the significance metric.
+  - Use `EntrezGeneSymbol` as the gene name label.
+- Make volcano plot points **clickable**:
+  - Clicking a point opens a **boxplot** comparing protein concentrations in **Young vs. Old** donors.
+  - Data is based on the “S4A values” sheet of the same file.
+  - Donor columns start from `Set002.H4.OD12.dup`.
+  - Donor age group is encoded in column names:
+    - `OD` = elderly donors
+    - `YD` = young donors
+
+### 🌟 Bonus Feature (Implemented)
+
+- Enhance functionality by showing related **scientific paper titles and PubMed links** where the selected gene is mentioned.
+- Data is fetched using [MyGene.info](https://mygene.info/) REST API:
+  - Example:  
+    - `https://mygene.info/v3/query?q=symbol:cdk2` to find a gene ID  
+    - `https://mygene.info/v3/gene/1017` to retrieve full gene data, including PubMed papers
+
+
+### 📋 Requirements
+
+- ✅ Use **Python** and **Flask** for the web service
+- ✅ Use any suitable plotting library (e.g. `Plotly`, `Matplotlib`, or `Bokeh`)
+- ✅ Use **Git** for version control — with clear, progressive commits
+- ✅ Include a well-structured `README.md` with:
+  - Setup instructions
+  - Configuration info
+  - Instructions to run locally
+
+--- 
 ## 🚀 Project Overview
 
 This repository includes:
@@ -81,6 +120,7 @@ vulcanome/
 | `/`   | GET    | Returns "Hello World!" |
 
 ---
+
 
 ## ✨ Author
 
