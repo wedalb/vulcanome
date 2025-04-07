@@ -2,62 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gene Activity WebApp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Protein Activity Visualization</title>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.524/build/spline-viewer.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-    <!-- Plotly CDN -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <!-- Optional: Basic CSS for layout (can be replaced later) -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 2rem;
-        }
-        section {
-            margin-bottom: 3rem;
-        }
-        #volcano, #boxplot, #gene-info {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            border-radius: 8px;
-            min-height: 300px;
-        }
-        #gene-info {
-            background-color: #f9f9f9;
-        }
-    </style>
 </head>
 <body>
+<div class="grid-background">
+    <div class="grid-lines"></div>
+</div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <h1>Vulca<span>nome</span></h1>
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="/dashboard" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a></li>
+                    <li><a href="/documentation" class="{{ 'active' if active_page == 'documentation' else '' }}">Documentation</a></li>
+                    <li><a href="/about" class="{{ 'active' if active_page == 'about' else '' }}">About</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</header>
 
 <main>
-    <h1>🧬 Gene Activity Visualization Dashboard</h1>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">BioData <span>Explorer</span></h1>
+                    <p class="hero-subtitle">Analyze and visualize gene activity patterns across multiple aging-related datasets with our integrated platform that combines JetBrains Research Biolabs data with public sources and AI-enhanced insights.</p>
+                    <a href="#" class="hero-cta">Explore Genes</a>
+                    <a href="#features" class="hero-cta secondary">Learn More</a>
+                </div>
+                <div class="hero-visual">
+                    <spline-viewer url="https://prod.spline.design/akQQaAIzUef4VNTp/scene.splinecode"></spline-viewer>
+                </div>
+            </div>
+        </section>
 
-    <section id="volcano-section">
-        <h2>🔬 Volcano Plot</h2>
-        <div id="volcano">Loading volcano plot...</div>
-    </section>
 
-    <section id="boxplot-section">
-        <h2>📊 Expression Boxplot</h2>
-        <div id="boxplot">Click a gene in the volcano plot to see a boxplot here.</div>
-    </section>
+        <!-- Bento Grid Section -->
+        <section id="features" class="bento-section">
+            <h2 class="section-title">Revolutionizing Gene Analysis</h2>
+            <p class="section-subtitle">Our platform streamlines research workflows by bringing together diverse datasets and advanced visualization tools.</p>
 
-    <section id="gene-info-section">
-        <h2>🧬 Gene Metadata</h2>
-        <div id="gene-info">Gene info will appear here.</div>
-    </section>
+            <div class="bento-grid">
+                <div class="bento-item feature-1">
+                    <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.5 16.7a2 2 0 0 0-1.7-1 2 2 0 0 0-1.7 1L12 21l-5-4.3a2 2 0 0 0-2.6 0 2 2 0 0 0 0 3l7.8 6.8a2 2 0 0 0 2.6 0L20.5 21a2 2 0 0 0 0-4.3Z"></path>
+                            <path d="M12 3v15"></path>
+                            <path d="m9 7 3-4 3 4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Unified Data Integration</h3>
+                    <p class="bento-text">Seamlessly collect and integrate gene-related information across multiple internal datasets and selected public sources like GTEx expression data. Our extensible architecture supports datasets of different types and structures.</p>
+                    <svg class="dna-bg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30,20 Q50,50 30,80 M70,20 Q50,50 70,80 M30,30 L70,30 M30,50 L70,50 M30,70 L70,70" stroke="currentColor" fill="none" stroke-width="4"/>
+                    </svg>
+                </div>
+
+                <div class="bento-item feature-2">
+                    <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12c0-6-4-9-9-9s-9 3-9 9 4 9 9 9 9-3 9-9Z"></path>
+                            <path d="M3 12h6"></path>
+                            <path d="M15 12h6"></path>
+                            <path d="M12 3v6"></path>
+                            <path d="M12 15v6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">AI-Enhanced Summaries</h3>
+                    <p class="bento-text">Transform complex biological measurements into human-readable text summaries that highlight significance levels, effect sizes, and genetic relationships. Our LLM processing enhances structure and readability, making insights accessible to researchers of all backgrounds.</p>
+                    <svg class="dna-bg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20,20 L80,20 L80,80 L20,80 Z" stroke="currentColor" fill="none" stroke-width="4"/>
+                        <path d="M35,35 L65,35 M35,50 L65,50 M35,65 L65,65" stroke="currentColor" stroke-width="4"/>
+                    </svg>
+                </div>
+
+                <div class="bento-item feature-3">
+                    <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"></path>
+                            <path d="M3 12h18"></path>
+                            <path d="M3 18h18"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Flexible Architecture</h3>
+                    <p class="bento-text">Built with extensibility in mind, allowing new datasets to be easily integrated regardless of their structure or format.</p>
+                    <svg class="dna-bg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="30" stroke="currentColor" fill="none" stroke-width="4"/>
+                        <path d="M50,20 L50,80 M20,50 L80,50" stroke="currentColor" stroke-width="4"/>
+                    </svg>
+                </div>
+
+                <div class="bento-item feature-4">
+                    <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                            <line x1="2" x2="22" y1="20" y2="20"></line>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Interactive Visualizations</h3>
+                    <p class="bento-text">Generate dynamic, interactive plots that visualize gene-related data across different dataset types and experimental conditions. Our visualization tools help researchers identify patterns, correlations, and anomalies at a glance.</p>
+                    <svg class="dna-bg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,70 L30,30 L50,50 L70,20 L90,60" stroke="currentColor" fill="none" stroke-width="4"/>
+                    </svg>
+                </div>
+
+                <div class="bento-item feature-5">
+                    <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Public Knowledge Integration</h3>
+                    <p class="bento-text">Retrieve supplementary information about gene behavior from public biomedical literature using intelligent LLM-generated prompts.</p>
+                    <svg class="dna-bg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20,50 A30,30 0 1,1 80,50 A30,30 0 1,1 20,50" stroke="currentColor" fill="none" stroke-width="4"/>
+                    </svg>
+                </div>
+
+                <div class="bento-item feature-6">
+                    <div class="bento-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Cross-Disciplinary Research</h3>
+                    <p class="bento-text">Work at the intersection of bioinformatics, data science, and web development to contribute to cutting-edge aging research tools.</p>
+                    <svg class="dna-bg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,50 L90,50 M50,10 L50,90" stroke="currentColor" fill="none" stroke-width="4"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </div>
 </main>
 
-<!-- JS Logic (empty for now) -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Fetch and render volcano plot here
-        // Add click handler for boxplot and gene info
-    });
-</script>
-
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">Vulcanome © 2025</div>
+            <div class="footer-nav">
+                <a href="#">API Documentation</a>
+                <a href="#">Privacy Policy</a>
+                <a href="https://github.com/wedalb/vulcanome.git">GitHub Repository</a>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
