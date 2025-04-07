@@ -84,12 +84,28 @@ This repository includes:
 
 ## 📁 Project Structure
 ```
-vulcanome/ 
-├── app.py # Main Flask app 
-├── data/ # Contains the NIHMS Excel data file 
-├── doc/ # Documentation assets (images, logos) 
-├── .gitignore # Python & PyCharm-specific ignores 
-└── README.md # Project documentation
+vulcanome/
+├── app/ 
+│   ├── data/                       # Contains the NIHMS Excel data file
+│   ├── static/
+│   │   ├── css/                    # Contains the CSS files
+│   │   │   └── styles.css
+│   │   ├── js/                     # Contains the JS files
+│   ├── templates/                  # Contains the HTML templates
+│   │   ├── 404.html
+│   │   ├── about.html
+│   │   ├── dashboard.html
+│   │   ├── documentation.html
+│   │   └── index.html
+│   ├── routes.py
+│   ├── __init__.py
+├── doc/                            # Contains images for README
+├── .flaskenv
+├── .gitignore
+├── run.py
+├── requirements.txt
+└── README.md
+
 ```
 ---
 ## 🧑‍💻 Getting Started
@@ -126,24 +142,30 @@ vulcanome/
 
 ## 🌐 Endpoint
 
-| Route | Method | Description         |
-|-------|--------|---------------------|
-| `/`   | GET    | Returns "Hello World!" |
+| Route | Method | Description                       |
+|-------|--------|-----------------------------------|
+| `/`   | GET    | Returns Hero Page                 |
+| `/dashboard`   | GET    | Displays the interactive dashboard |
+| `/about`   | GET    | Shows project background and author|
+| `/documentation`   | GET    | Provides technical documentation|
 
 ---
 
 
 
-## 🔍 Planned Usage (Not Yet Implemented)
+## 🔍 Usage
 
-> ⚠️ This section describes intended functionality that is currently **not implemented** but reflects how the app should behave in a future version.
 
 Once the app is running locally at `http://localhost:5000`, the interface is expected to work as follows:
 
+- For the actual task implementation go to **Dashboard**
 - An **interactive volcano plot** will display differential protein activity.
 - **Clicking a data point** will open a **boxplot** comparing expression levels between young and old.
 - If available, related **scientific publications** will appear below, pulled from the **MyGene.info** API.
 
+<img src="doc/hero-image.png" alt="Hero Image" width="30%" />
+<img src="doc/hero-image2.png" alt="Hero Image" width="30%" />
+<img src="doc/dashboard.png" alt="Hero Image" width="30%" />
 
 ## 🧬 Credits
 
