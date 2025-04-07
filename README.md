@@ -4,7 +4,9 @@
 <img src="doc/volcanome-logo.png" alt="Vulcanome Logo" width="80" /> <br/>
 <img src="doc/hero-image.png" alt="Hero Image" width="30%" />
 <img src="doc/hero-image2.png" alt="Hero Image" width="30%" />
-<img src="doc/dashboard.png" alt="Hero Image" width="30%" />
+<img src="doc/dashboard.png" alt="Hero Image" width="30%" /> <br/>
+<img src="doc/dashboard1.png" alt="Hero Image" width="30%" />
+<img src="doc/dashboard2.png" alt="Hero Image" width="30%" />
 
 Fueling research with dynamic, interactive insights into protein activity.
 
@@ -161,12 +163,15 @@ Once the app is running locally at `http://localhost:5000`, the interface is exp
 
 - For the actual task implementation go to **Dashboard**
 - An **interactive volcano plot** will display differential protein activity.
-- **Clicking a data point** will open a **boxplot** comparing expression levels between young and old.
-- If available, related **scientific publications** will appear below, pulled from the **MyGene.info** API.
+- **Clicking a data point** will open a **boxplot** underneath comparing expression levels between young and old.
+- For more information you can hover over it. 
+- If available, related **scientific publications** will appear on the right, pulled from the **MyGene.info** API.
 
 <img src="doc/hero-image.png" alt="Hero Image" width="30%" />
 <img src="doc/hero-image2.png" alt="Hero Image" width="30%" />
-<img src="doc/dashboard.png" alt="Hero Image" width="30%" />
+<img src="doc/dashboard.png" alt="Hero Image" width="30%" /> <br/>
+<img src="doc/dashboard1.png" alt="Hero Image" width="30%" />
+<img src="doc/dashboard2.png" alt="Hero Image" width="30%" />
 
 ## 🧬 Credits
 
