@@ -19,15 +19,16 @@
 <header>
     <div class="container">
         <div class="header-content">
-            <div class="logo">
+            <a href="/" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-dna"></i>
                 </div>
                 <h1>Vulca<span>nome</span></h1>
-            </div>
+            </a>
+
             <nav>
                 <ul>
-                    <li><a href="/" class="{{ 'active' if active_page == 'home' else '' }}">Dashboard</a></li>
+                    <li><a href="/dashboard" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a></li>
                     <li><a href="/documentation" class="{{ 'active' if active_page == 'documentation' else '' }}">Documentation</a></li>
                     <li><a href="/about" class="{{ 'active' if active_page == 'about' else '' }}">About</a></li>
                 </ul>
@@ -152,130 +153,6 @@
             </div>
         </section>
 
-        <div class="dashboard-header">
-            <h1 class="dashboard-title">Protein Activity Analysis</h1>
-            <p class="dashboard-description">Interactive visualization of protein activity levels between young and old donors. Select data points to explore detailed information.</p>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-label">Total Proteins</div>
-                <div class="stat-value">2,451</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Significant Proteins</div>
-                <div class="stat-value">328</div>
-                <div class="stat-trend trend-up">
-                    <i class="fas fa-arrow-up trend-icon"></i> 13.4%
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Up-Regulated</div>
-                <div class="stat-value">189</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-label">Down-Regulated</div>
-                <div class="stat-value">139</div>
-            </div>
-        </div>
-
-        <div class="dashboard">
-            <div class="panel volcano-plot">
-                <div class="panel-accent"></div>
-                <div class="panel-header">
-                    <h2 class="panel-title">Volcano Plot: Differential Protein Activity</h2>
-                    <div class="controls">
-                        <div class="control-group">
-                            <label class="control-label">P-value Threshold:</label>
-                            <input type="number" id="pvalue-threshold" value="0.05" step="0.01" min="0" max="1">
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Log2FC Threshold:</label>
-                            <input type="number" id="fc-threshold" value="1.0" step="0.1" min="0">
-                        </div>
-                        <button id="apply-filters">Apply Filters</button>
-                    </div>
-                </div>
-                <div class="plot-container" id="volcano-plot-container">
-                    <div class="placeholder-text">
-                        <div class="loading-animation"></div>
-                        <p>Interactive volcano plot will appear here</p>
-                        <p>Click on a point to view protein details</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel gene-info">
-                <div class="panel-accent"></div>
-                <div class="panel-header">
-                    <h2 class="panel-title">Gene Information</h2>
-                </div>
-                <div class="plot-container" id="gene-info-container">
-                    <div class="placeholder-text">
-                        <p>Select a protein from the volcano plot</p>
-                        <p>to view detailed gene information</p>
-                    </div>
-                </div>
-                <div class="gene-details" id="gene-details" style="display: none;">
-                    <div class="gene-header">
-                        <div class="gene-icon">
-                            <i class="fas fa-dna"></i>
-                        </div>
-                        <h3 class="gene-name" id="gene-name">CDK2</h3>
-                    </div>
-                    <div>
-                        <span class="chip significant">Significant</span>
-                        <span class="chip up-regulated">Up-regulated</span>
-                    </div>
-                    <div class="gene-metadata">
-                        <div class="metadata-row">
-                            <div class="metadata-label">Log2 Fold Change:</div>
-                            <div class="metadata-value" id="gene-fc">+2.34</div>
-                        </div>
-                        <div class="metadata-row">
-                            <div class="metadata-label">P-value:</div>
-                            <div class="metadata-value" id="gene-pvalue">0.0023</div>
-                        </div>
-                        <div class="metadata-row">
-                            <div class="metadata-label">Adj. P-value:</div>
-                            <div class="metadata-value" id="gene-adjp">0.0047</div>
-                        </div>
-                        <div class="metadata-row">
-                            <div class="metadata-label">Entrez ID:</div>
-                            <div class="metadata-value" id="gene-entrez">1017</div>
-                        </div>
-                    </div>
-                    <div class="publications">
-                        <h4>Related Publications</h4>
-                        <div class="publication-item">
-                            <div class="publication-title">Cyclin-dependent kinase 2 inhibitors in cancer therapy: an update</div>
-                            <div class="publication-authors">Smith J, Johnson A, Lee RS</div>
-                            <div class="publication-journal">Journal of Molecular Biology (2023)</div>
-                            <a href="#" class="publication-link">View on PubMed <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                        <div class="publication-item">
-                            <div class="publication-title">Role of CDK2 in cell cycle regulation and aging processes</div>
-                            <div class="publication-authors">Wang H, Chen L, Kim J</div>
-                            <div class="publication-journal">Cell Metabolism (2022)</div>
-                            <a href="#" class="publication-link">View on PubMed <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel boxplot">
-                <div class="panel-accent"></div>
-                <div class="panel-header">
-                    <h2 class="panel-title">Protein Concentration by Age Group</h2>
-                </div>
-                <div class="plot-container" id="boxplot-container">
-                    <div class="placeholder-text">
-                        <p>Select a protein from the volcano plot to view</p>
-                        <p>expression levels across young and old donors</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </main>
 

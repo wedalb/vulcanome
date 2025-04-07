@@ -18,15 +18,15 @@
 <header>
     <div class="container">
         <div class="header-content">
-            <div class="logo">
+            <a href="/" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-dna"></i>
                 </div>
                 <h1>Vulca<span>nome</span></h1>
-            </div>
-            <nav>
+            </a>
+                        <nav>
                 <ul>
-                    <li><a href="/" class="{{ 'active' if active_page == 'home' else '' }}">Dashboard</a></li>
+                    <li><a href="/dashboard" class="{{ 'active' if active_page == 'dashboard' else '' }}">Dashboard</a></li>
                     <li><a href="/documentation" class="{{ 'active' if active_page == 'documentation' else '' }}">Documentation</a></li>
                     <li><a href="/about" class="{{ 'active' if active_page == 'about' else '' }}">About</a></li>
                 </ul>

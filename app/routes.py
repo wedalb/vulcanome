@@ -7,8 +7,12 @@ def home():
     return render_template('index.html')
 
 @main.route('/documentation')
-def task():
+def documentation():
     return render_template('documentation.html')
+@main.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 
 @main.route('/about')
 def about():
