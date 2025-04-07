@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gene Activity WebApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Plotly CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Optional: Basic CSS for layout (can be replaced later) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+        section {
+            margin-bottom: 3rem;
+        }
+        #volcano, #boxplot, #gene-info {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 300px;
+        }
+        #gene-info {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>🧬 Gene Activity Visualization Dashboard</h1>
+
+    <section id="volcano-section">
+        <h2>🔬 Volcano Plot</h2>
+        <div id="volcano">Loading volcano plot...</div>
+    </section>
+
+    <section id="boxplot-section">
+        <h2>📊 Expression Boxplot</h2>
+        <div id="boxplot">Click a gene in the volcano plot to see a boxplot here.</div>
+    </section>
+
+    <section id="gene-info-section">
+        <h2>🧬 Gene Metadata</h2>
+        <div id="gene-info">Gene info will appear here.</div>
+    </section>
+</main>
+
+<!-- JS Logic (empty for now) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Fetch and render volcano plot here
+        // Add click handler for boxplot and gene info
+    });
+</script>
+
+</body>
+</html>
