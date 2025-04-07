@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein Activity Visualization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+
+</head>
+<body>
+<div class="grid-background">
+    <div class="grid-lines"></div>
+</div>
+
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <h1>Vulca<span>nome</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="{{ 'active' if active_page == 'home' else '' }}">Dashboard</a></li>
+                    <li><a href="/documentation" class="{{ 'active' if active_page == 'documentation' else '' }}">Documentation</a></li>
+                    <li><a href="/about" class="{{ 'active' if active_page == 'about' else '' }}">About</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">404 No Page Found</h1>
+                <p class="hero-subtitle">Please visit a different page. This page was not found. </p>
+
+            </div>
+            <div class="hero-visual">
+                <div class="spline-container">
+                    <spline-viewer url="https://prod.spline.design/akQQaAIzUef4VNTp/scene.splinecode"></spline-viewer>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">Vulcanome © 2025</div>
+            <div class="footer-nav">
+                <a href="#">API Documentation</a>
+                <a href="#">Privacy Policy</a>
+                <a href="https://github.com/wedalb/vulcanome.git">GitHub Repository</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
