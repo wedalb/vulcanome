@@ -1,0 +1,608 @@
+        :root {
+            --black: #0A0A0A;
+            --dark-gray: #1E1E1E;
+            --gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #AAAAAA;
+            --off-white: #F5F5F5;
+            --white: #FFFFFF;
+            --accent: #ca34a4;
+            --highlight: rgba(255, 255, 255, 0.05);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background-color: var(--black);
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            margin-right: 12px;
+            color: var(--white);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 32px;
+        }
+
+        nav ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            padding: 8px 0;
+            transition: var(--transition);
+            letter-spacing: 0.2px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--white);
+        }
+
+        nav ul li a.active {
+            border-bottom: 2px solid var(--accent);
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .dashboard-header {
+            margin-bottom: 32px;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .dashboard-description {
+            color: var(--light-gray);
+            max-width: 800px;
+            font-size: 0.95rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto auto;
+            gap: 24px;
+        }
+
+        .panel {
+            background-color: var(--dark-gray);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 24px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .panel:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.07);
+        }
+
+        .panel-header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            color: var(--white);
+            font-weight: 500;
+            letter-spacing: -0.3px;
+        }
+
+        .volcano-plot {
+            grid-column: 1 / 9;
+            grid-row: 1;
+            height: 600px;
+        }
+
+        .gene-info {
+            grid-column: 9 / 13;
+            grid-row: 1;
+            height: 600px;
+        }
+
+        .boxplot {
+            grid-column: 1 / 13;
+            grid-row: 2;
+            height: 450px;
+        }
+
+        .plot-container {
+            width: 100%;
+            height: calc(100% - 60px);
+            background-color: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .placeholder-text {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .loading-animation {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top: 2px solid var(--accent);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gene-details {
+            padding: 20px;
+        }
+
+        .gene-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .gene-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+            font-size: 1.2rem;
+        }
+
+        .gene-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .gene-metadata {
+            margin-bottom: 28px;
+        }
+
+        .metadata-row {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .metadata-row:last-child {
+            border-bottom: none;
+        }
+
+        .metadata-label {
+            width: 120px;
+            font-weight: 400;
+            color: var(--light-gray);
+            font-size: 0.85rem;
+        }
+
+        .metadata-value {
+            flex: 1;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .publications {
+            margin-top: 32px;
+        }
+
+        .publications h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--white);
+            letter-spacing: -0.3px;
+        }
+
+        .publication-item {
+            padding: 16px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.03);
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .publication-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .publication-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--white);
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            margin-bottom: 5px;
+        }
+
+        .publication-journal {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .publication-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .publication-link:hover {
+            background-color: var(--accent);
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .control-label {
+            margin-right: 12px;
+            font-weight: 400;
+            color: var(--light-gray);
+            font-size: 0.85rem;
+        }
+
+        select, input {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(138, 44, 114);
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: var(--accent);
+            color: var(--black);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        button:hover {
+            background-color: var(--white);
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: var(--dark-gray);
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 100;
+            font-size: 0.85rem;
+            max-width: 250px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tooltip-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .tooltip-content {
+            color: var(--light-gray);
+        }
+
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .footer-nav a {
+            color: var(--light-gray);
+            text-decoration: none;
+            margin-left: 24px;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+        }
+
+        /* Modern Grid Lines Background */
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .grid-lines {
+            width: 200%;
+            height: 200%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transform: rotate(-45deg) translate(-50%, -50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .panel-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background-color: var(--dark-gray);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            flex: 1;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            font-size: 0.85rem;
+        }
+
+        .trend-up {
+            color: #10B981;
+        }
+
+        .trend-down {
+            color: #EF4444;
+        }
+
+        .trend-icon {
+            margin-right: 4px;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .chip.significant {
+            background-color: rgba(138, 44, 114);
+            color: var(--accent);
+        }
+
+        .chip.down-regulated {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #EF4444;
+        }
+
+        .chip.up-regulated {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .volcano-plot, .gene-info, .boxplot {
+                grid-column: 1;
+            }
+
+            .volcano-plot {
+                grid-row: 1;
+            }
+
+            .gene-info {
+                grid-row: 2;
+            }
+
+            .boxplot {
+                grid-row: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 16px;
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 12px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .control-group {
+                width: 100%;
+                margin-bottom: 12px;
+            }
+
+            select, input {
+                width: 100%;
+            }
+
+            .stats-container {
+                flex-direction: column;
+            }
+        }
