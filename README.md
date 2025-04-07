@@ -1,8 +1,10 @@
 
 
 # Vulcanome
-<img src="doc/volcanome-logo.png" alt="Vulcanome Logo" width="80" />
-
+<img src="doc/volcanome-logo.png" alt="Vulcanome Logo" width="80" /> <br/>
+<img src="doc/hero-image.png" alt="Hero Image" width="30%" />
+<img src="doc/hero-image2.png" alt="Hero Image" width="30%" />
+<img src="doc/dashboard.png" alt="Hero Image" width="30%" />
 
 Fueling research with dynamic, interactive insights into protein activity.
 
