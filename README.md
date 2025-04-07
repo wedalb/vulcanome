@@ -140,16 +140,17 @@ vulcanome/
 
 ---
 
-## 🌐 Endpoint
+## 🌐 Endpoints
 
-| Route | Method | Description                       |
-|-------|--------|-----------------------------------|
-| `/`   | GET    | Returns Hero Page                 |
-| `/dashboard`   | GET    | Displays the interactive dashboard |
-| `/about`   | GET    | Shows project background and author|
-| `/documentation`   | GET    | Provides technical documentation|
+| Route              | Method | Description                                          |
+|--------------------|--------|------------------------------------------------------|
+| `/`                | GET    | Returns Hero Page                                    |
+| `/dashboard`       | GET    | Displays the interactive dashboard                   |
+| `/about`           | GET    | Shows project background and author                  |
+| `/documentation`   | GET    | Provides technical documentation                     |
+| `/api/volcano`     | GET    | Returns JSON representation of volcano plot data     |
+| `/api/boxplot`     | POST   | Returns Plotly boxplot for a given gene              |
 
----
 
 
 
