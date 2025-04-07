@@ -138,6 +138,10 @@ vulcanome/
     ```
    python app.py
    ```
+    or 
+    ```
+   flask run
+   ```
 5. Open your browser at: http://localhost:5000
 
 ---
@@ -151,7 +155,9 @@ vulcanome/
 | `/about`           | GET    | Shows project background and author                  |
 | `/documentation`   | GET    | Provides technical documentation                     |
 | `/api/volcano`     | GET    | Returns JSON representation of volcano plot data     |
-| `/api/boxplot`     | POST   | Returns Plotly boxplot for a given gene              |
+| `/api/boxplot/{gene}`     | POST   | Returns Plotly boxplot for a given gene              |
+| `/api/publication/{gene}`     | POST   | Returns Publications taken from MyGene.info         |
+
 
 
 
