@@ -393,6 +393,24 @@ main {
     grid-column: 9 / 13;
     grid-row: 1;
     height: 600px;
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--accent) transparent;
+}
+
+
+/* Optional: Custom scrollbar for WebKit (Chrome, Edge, Safari) */
+.gene-info::-webkit-scrollbar {
+    width: 6px;
+}
+
+.gene-info::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 3px;
+}
+
+.gene-info::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .boxplot {
@@ -417,6 +435,11 @@ main {
     color: var(--light-gray);
     font-size: 0.9rem;
     text-align: center;
+      transition: opacity 0.3s ease;
+
+}
+.placeholder-text[style*="display: none"] {
+  opacity: 0;
 }
 
 .loading-animation {
@@ -795,6 +818,8 @@ footer {
         grid-row: 3;
     }
 }
+
+
 
 @media (max-width: 768px) {
     .header-content {

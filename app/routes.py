@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import requests
 from flask import Blueprint, jsonify, current_app, render_template
 import os
 
@@ -49,7 +50,6 @@ def about():
         HTML: Rendered 'about.html' template.
     """
     return render_template('about.html')
-
 
 
 @main.route('/api/volcano-data')
@@ -129,6 +129,55 @@ def get_boxplot_data(gene_name):
             'young': young_values,
             'old': old_values
         })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@main.route('/api/publications/<gene_symbol>')
+def get_gene_publications(gene_symbol):
+    """
+    Fetch related PubMed articles using NCBI E-utilities based on the gene symbol.
+    """
+    try:
+        # Step 1: Search for PubMed IDs using ESearch
+        search_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+        search_params = {
+            "db": "pubmed",
+            "term": f"{gene_symbol}[Title]",
+            "retmode": "json",
+            "retmax": 5
+        }
+
+        search_resp = requests.get(search_url, params=search_params)
+        search_data = search_resp.json()
+        pubmed_ids = search_data.get("esearchresult", {}).get("idlist", [])
+
+        if not pubmed_ids:
+            return jsonify({'gene': gene_symbol, 'publications': []})
+
+        # Step 2: Fetch details for those PubMed IDs using ESummary
+        summary_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
+        summary_params = {
+            "db": "pubmed",
+            "id": ",".join(pubmed_ids),
+            "retmode": "json"
+        }
+
+        summary_resp = requests.get(summary_url, params=summary_params)
+        summary_data = summary_resp.json()
+
+        publications = []
+        for pmid in pubmed_ids:
+            item = summary_data["result"].get(pmid, {})
+            publications.append({
+                "title": item.get("title", f"PubMed Article {pmid}"),
+                "authors": ", ".join([auth["name"] for auth in item.get("authors", [])]) or "Unknown",
+                "journal": item.get("fulljournalname", "Unknown Journal"),
+                "link": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+            })
+
+        return jsonify({'gene': gene_symbol, 'publications': publications})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
